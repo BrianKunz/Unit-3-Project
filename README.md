@@ -10,7 +10,7 @@ Here is our application in action:
 
 As you can see, our application is user friendly and easy on the eyes. This application really will help making gift hunting that much easier.
 
-Feel free to explore our repo, ask questions, and provide suggestions!
+Feel free to explore our repo, ask questions, and provide suggestions! We love you
 
 ### Demo
 ## Packages Installed
