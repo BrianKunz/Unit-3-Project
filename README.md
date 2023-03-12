@@ -1,3 +1,13 @@
 # Unit-3-Project
 
-Added branch - brian
+## Description
+
+### Demo
+## Packages Installed
+
+## Technologies Used 
+
+## Contributors 
+ - Brian Kunz
+ - Victor Maglinski 
+ - Fuzzy Volpitta
