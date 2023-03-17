@@ -9,8 +9,8 @@ const dataController = {
     async index(req, res, next) {
         try {
             const foundIdeas = await Idea.find({})
-            console.log({ foundIdeas });
             res.locals.data.ideas = foundIdeas;
+            next();
         } catch (error) {
             res.status(400).send({
                 msg: error.message,
@@ -54,7 +54,9 @@ const dataController = {
 }
 const apiController = {
     index(req, res, next) {
-        res.json(res.locals.data.ideas);
+        const foundIdeas = res.locals.data.ideas
+        res.json(foundIdeas);
+        console.log(foundIdeas)
     }, 
     show(req, res, next) {
         res.json(res.locals.data.idea);

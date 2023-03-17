@@ -10,7 +10,8 @@ const ideaSchema = new Schema({
     }, 
     img: { type: String },
     description: { type: String, required: true },
-    category: {type: Schema.Types.ObjectId, ref: 'Category'}
+    category: {type: Schema.Types.ObjectId, ref: 'Category'},
+    link: {type: String}
 }, {
     timestamps: true, 
 });
