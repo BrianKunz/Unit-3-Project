@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "build")));
 //Routes: 
 
 app.use("/api/ideas", require("./backend/routes/api/ideas"))
+app.use("/api/lists", require("./backend/routes/api/lists"))
 
 // Put API routes here, before the "catch all" route
 
