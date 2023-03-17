@@ -12,7 +12,7 @@ As you can see, our application is user friendly and easy on the eyes. This appl
 
 Feel free to explore our repo, ask questions, and provide suggestions! We love you
 
-### Demo
+### Demo: 
 
 ## Packages Installed
 
