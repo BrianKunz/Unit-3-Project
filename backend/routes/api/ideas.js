@@ -19,7 +19,7 @@ router.use((req, res, next) => {
 router.get("/", dataController.index, apiController.index);
 
 // Delete: api/ideas/:id
-
+router.delete("/:id", dataController.destroy, apiController.show);
 
 // Update: api/ideas/:id
 

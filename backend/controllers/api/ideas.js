@@ -19,7 +19,17 @@ const dataController = {
     },
 
     // Delete: Delete
-
+    async destroy(req, res, next) {
+        try {
+         const deletedIdea = await Idea.findByIdAndDelete(req.params.id);
+         res.locals.data.idea = deletedIdea;
+         next();
+        } catch (error) {
+            res.status(400).send({
+                msg: error.message,
+            });
+        }
+    },
 
     // Update: Put
 
