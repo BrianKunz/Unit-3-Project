@@ -32,7 +32,22 @@ const dataController = {
     },
 
     // Update: Put
-
+    async update(req, res, next) {
+        try {
+            const updatedIdea = await Idea.findByIdAndUpdate(
+                req.params.id, 
+                req.body,
+                { new: true }
+            );
+            res.locals.data.idea = updatedIdea;
+            next();
+        } catch (error) {
+            res.status(400).send({
+                msg: error.message,
+            });     
+            
+        }
+    },
 
     // Create: Post
     async create(req, res, next) {
