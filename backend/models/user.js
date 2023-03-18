@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
-const Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
@@ -35,4 +34,4 @@ userSchema.pre('save', async function(next) {
     return next();
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = model('User', userSchema);
