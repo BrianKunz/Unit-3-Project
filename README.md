@@ -17,8 +17,18 @@ Feel free to explore our repo, ask questions, and provide suggestions! We love y
 ## Packages Installed
 
 ## Technologies Used 
+In our application we used many diffrent technologies to bring it all together. We used HTML,CSS,SCSS,JavaScript,React, Express.js,MongoDB,Morgan, React-Dom, React-Router-Dom.
 
+## Trello Board
+https://trello.com/b/dUgFgZyF/group-project-3
+## Netlify Link
+
+## Unsolved Issues
+
+
+## Future Enhancments
+In the future we hope to have more list's available to consumers from our catagories;as well as the abilty to click to share lists and items to anyone using any traditional shareing way. Whether that would be on socials, email, text, ect. A ranking system for our lists would also be an interesting feature to show highest rated to lowest rated.
 ## Contributors 
  - Brian Kunz
- - Victor Maglinski 
+ - Victor Szmaglinski 
  - Fuzzy Volpitta
