@@ -7,7 +7,7 @@ export default function CreateList({listItems, handleAddToList}) {
     <CreateListItem
     key={item._id}
     handleAddToList={handleAddToList}
-    menuItem={item}
+    listItem={item}
     />
   });
   return <main className={styles.listItems}>{items}</main>;
