@@ -21,18 +21,30 @@ const dataController = {
     // Delete: Delete
     async destroy(req, res, next) {
         try {
-            
+          const deletedList = await List.findByIdAndDelete(req.params.id);
+          res.locals.data.list = deletedList;
+          next();
         } catch (error) {
-            
+          res.status(400).send({
+            msg: error.message,
+          });
         }
     },
     
     // Update: Put
     async update(req, res, next) {
         try {
-            
+          const updatedList = await List.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+          );
+          res.locals.data.list = updatedList;
+          next(); 
         } catch (error) {
-            
+          res.status(400).send({
+            msg: error.message,
+          });
         }
     },
 
