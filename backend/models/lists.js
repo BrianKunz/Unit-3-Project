@@ -8,11 +8,7 @@ const listSchema = new Schema({
         maxLength: 30,
         // required: true,
     },
-    qty: { 
-        type: Number, 
-        default: 1 
-    },
-    ideas: ideaSchema, type: Array,
+    ideas: [ideaSchema], 
 },{
     timestamps: true,
 });
