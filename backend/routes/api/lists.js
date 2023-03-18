@@ -15,10 +15,10 @@ router.use((req, res, next) => {
 router.get("/", dataController.index, apiController.index);
 
 // Delete: /api/lists/:id
-
+router.delete("/:id", dataController.destroy, apiController.show);
 
 // Update: /api/lists/:id
-
+router.put("/:id", dataController.update, apiController.show);
 
 // Create /api/lists
 router.post("/", dataController.create, apiController.show);
