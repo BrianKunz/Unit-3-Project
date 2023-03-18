@@ -1,7 +1,15 @@
-import React from 'react'
+import styles from "./CreateList.module.scss";
+import CreateListItem from "../CreateListItem/CreateListItem";
 
-export default function Createlist() {
-  return (
-    <div>Createlist is cool</div>
-  )
+
+export default function CreateList({listItems, handleAddToList}) {
+  const Items = listItems.map((item) => {
+    <CreateListItem
+    key={item._id}
+    handleAddToList={handleAddToList}
+    listItem={item}
+    />
+  });
+  return <main className={styles.listItems}>{items}</main>;
 }
+  
