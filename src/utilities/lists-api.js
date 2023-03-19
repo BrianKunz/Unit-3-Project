@@ -9,4 +9,8 @@ export function addIdeaToList(ideaId) {
   return sendRequest(`${BASE_URL}/list/ideas/${ideaId}`, "POST");
 }
 
+export function createList(listData) {
+  return sendRequest(`${BASE_URL}/`, "POST", listData);
+}
+
 // Add remove idea from list function

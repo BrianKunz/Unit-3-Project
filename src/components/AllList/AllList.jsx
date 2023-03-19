@@ -23,6 +23,7 @@
 // }
 
 import React from "react";
+import AllListItems from "../AllListItem/AllListItem";
 
 export default function AllList({ lists }) {
   return (
@@ -35,6 +36,7 @@ export default function AllList({ lists }) {
           </li>
         ))}
       </ul>
+      <AllListItems />
     </main>
   );
 }

@@ -7,6 +7,7 @@ export default class CreateListIdea extends Component {
     title: "",
     img: "",
     description: "",
+    category: "",
     link: "",
     error: "",
   };
@@ -20,11 +21,11 @@ export default class CreateListIdea extends Component {
   };
 
   handleSubmit = async (event) => {
-    event.preventDeFault();
+    event.preventDefault();
     try {
       const formData = { ...this.state };
       delete formData.error;
-      const idea = await createIdea(formData);
+      const idea = await createIdea(this.props.listId, formData); // Pass in listId to createIdea
       this.props.setIdea(idea);
     } catch (error) {
       this.setState({ error: "Failed to add to list" });
