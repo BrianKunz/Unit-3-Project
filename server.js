@@ -1,13 +1,11 @@
 require("dotenv").config();
-
+require("./backend/config/db");
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 
 const app = express();
-
-require("./backend/config/db");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -17,10 +15,11 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-//Routes: 
-
-app.use("/api/ideas", require("./backend/routes/api/ideas"))
-app.use("/api/lists", require("./backend/routes/api/lists"))
+//Routes:
+app.use(require("./backend/config/checkToken"));
+app.use("/api/users", require("./backend/routes/api/users"));
+app.use("/api/ideas", require("./backend/routes/api/ideas"));
+app.use("/api/lists", require("./backend/routes/api/lists"));
 
 // Put API routes here, before the "catch all" route
 
