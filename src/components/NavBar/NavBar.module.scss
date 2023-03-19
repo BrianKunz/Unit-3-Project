@@ -1,0 +1,14 @@
+.Nav {
+    background-color: #29ABF4;
+  }
+  .NavLink {
+    height: 30vmin;
+    width:30vmin;
+    flex-direction: row;
+    border-radius: 20%;
+    font-size: 2.5vmin;
+    background-color: #29ABF4;
+    text-decoration: solid;
+    border: 0.6vmin solid var(--tan-2);
+
+  }

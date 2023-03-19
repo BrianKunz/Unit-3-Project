@@ -1,12 +1,16 @@
 import React from "react";
+import styles from "./NavBar.module.scss";
 import { Link } from "react-router-dom";
+
 
 export default function NavBar() {
   return (
-    <nav>
-      <Link to="/lists">List History</Link>
+    <div className={styles.NavBar}>
+    <nav >
+      <Link to="/lists" className={styles.NavLink}>List History</Link>
       &nbsp; | &nbsp;
-      <Link to="/lists/new">New List</Link>
+      <Link to="/lists/new"className={styles.NavLink}>New List</Link>
     </nav>
+    </div>
   );
 }
