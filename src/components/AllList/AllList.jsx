@@ -23,8 +23,6 @@
 // }
 
 import React from "react";
-// import styles from "./AllList.module.scss";
-// import AllListItem from "../AllListItem/AllListItem";
 
 export default function AllList({ lists }) {
   return (
