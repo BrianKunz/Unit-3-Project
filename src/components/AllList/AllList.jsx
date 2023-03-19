@@ -1,42 +1,67 @@
-// import AllListItem from "../AllListItem/AllListItem";
-// import styles from "./AllList.module.scss";
-
-// export default function AllList({ list, activeList, handleSelectorList }) {
-//   const listIdeas = list.map((o) => {
-//     <AllListItem
-//       name={o}
-//       ideas={o}
-//       isSelected={o === activeList}
-//       handleSelectorList={handleSelectorList}
-//       key={o._id}
-//     />;
-//   });
-//   return (
-//     <main className={styles.AllList}>
-//       {listIdeas.length ? (
-//         listIdeas
-//       ) : (
-//         <span className={styles.noList}>No List's</span>
-//       )}
-//     </main>
-//   );
-// }
-
-import React from "react";
+import React, { useState } from "react";
 import AllListItems from "../AllListItem/AllListItem";
+import { updateList, deleteList } from "../../utilities/lists-api";
 
-export default function AllList({ lists }) {
+export default function AllList({ lists, setLists }) {
+  const [selectedList, setSelectedList] = useState(null);
+  const [listName, setListName] = useState("");
+
+  const handleListClick = (list) => {
+    setSelectedList(list);
+    setListName(list.name);
+  };
+
+  const handleListNameChange = (event) => {
+    setListName(event.target.value);
+  };
+
+  const handleListSave = async () => {
+    try {
+      const updatedList = await updateList(selectedList._id, {
+        name: listName,
+      });
+      setLists((prevLists) =>
+        prevLists.map((list) =>
+          list._id === updatedList._id ? updatedList : list
+        )
+      );
+      setSelectedList(updatedList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleListDelete = async () => {
+    try {
+      await deleteList(selectedList._id);
+      setLists((prevLists) =>
+        prevLists.filter((list) => list._id !== selectedList._id)
+      );
+      setSelectedList(null);
+      setListName("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <main>
       <h1>All Lists</h1>
       <ul>
         {lists.map((list) => (
           <li key={list._id}>
-            <h2>{list.name}</h2>
+            <h2 onClick={() => handleListClick(list)}>{list.name}</h2>
           </li>
         ))}
       </ul>
-      <AllListItems />
+      {selectedList && (
+        <div>
+          <input value={listName} onChange={handleListNameChange} />
+          <button onClick={handleListSave}>Save</button>
+          <button onClick={handleListDelete}>Delete</button>
+          <AllListItems list={selectedList} />
+        </div>
+      )}
     </main>
   );
 }

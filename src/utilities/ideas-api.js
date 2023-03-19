@@ -2,16 +2,30 @@ import sendRequest from "./send-request";
 
 const BASE_URL = "/api/ideas";
 
-// export function getAll() {
-//   return sendRequest(BASE_URL);
-// }
-
-// export function getById(id) {
-//   return sendRequest(`${BASE_URL}/${id}`);
-// }
-
-export function createIdea(idea) {
-  return sendRequest(`${BASE_URL}/`, "POST");
+export function getAllIdeas() {
+  return sendRequest(BASE_URL);
 }
 
-//Need to add edit and delete functions for
+export function createIdea(ideaData) {
+  return sendRequest(`${BASE_URL}/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ideaData),
+  });
+}
+
+export function updateIdea(ideaId, ideaData) {
+  return sendRequest(`${BASE_URL}/${ideaId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ideaData),
+  });
+}
+
+export function deleteIdea(ideaId) {
+  return sendRequest(`${BASE_URL}/${ideaId}`, { method: "DELETE" });
+}
