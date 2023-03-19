@@ -20,12 +20,12 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use((req, res, next) => {
   res.locals.data = {};
   next();
-})
+});
 
-//Routes: 
-
-app.use("/api/ideas", require("./backend/routes/api/ideas"))
-app.use("/api/lists", require("./backend/routes/api/lists"))
+//Routes:
+app.use("/api/categories", require("./backend/routes/api/categories"));
+app.use("/api/ideas", require("./backend/routes/api/ideas"));
+app.use("/api/lists", require("./backend/routes/api/lists"));
 
 // Put API routes here, before the "catch all" route
 
