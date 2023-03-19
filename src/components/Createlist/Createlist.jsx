@@ -1,7 +1,8 @@
-import React from 'react'
+import styles from "./CreateList.module.scss";
+// import CreateListItem from "../CreateListItem/CreateListItem";
+
+import React from "react";
 
 export default function Createlist() {
-  return (
-    <div>Createlist is cool</div>
-  )
+  return <div className={styles.Createlist}>Createlist</div>;
 }
