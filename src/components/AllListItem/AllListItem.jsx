@@ -1,13 +1,40 @@
 import React, { useState } from "react";
 import { updateIdea, deleteIdea } from "../../utilities/ideas-api";
 
-export default function AllListItems({ list, onIdeaUpdate, onIdeaDelete }) {
+export default function AllListItem({ list, onIdeaUpdate, onIdeaDelete }) {
   const [editingIdeaId, setEditingIdeaId] = useState("");
+  const [lists, setLists] = useState([]);
+  const [initialList, setList] = useState([]);
 
-  const handleUpdateIdea = async (ideaId, title, description) => {
+  const updateList = async (listId, updatedList) => {
+    const response = await updateIdea(listId, updatedList);
+    if (response) {
+      return response.data;
+    }
+    return null;
+  };
+
+  const handleUpdateIdea = async (event, ideaId) => {
+    event.preventDefault();
+    if (!list) return; // Add null check
     try {
-      const updatedIdea = await updateIdea(ideaId, { title, description });
-      onIdeaUpdate(updatedIdea);
+      const updatedList = await updateList(list._id, {
+        ideas: list.ideas.map((idea) =>
+          idea._id === ideaId
+            ? {
+                ...idea,
+                title: event.target.elements.title.value,
+                description: event.target.elements.description.value,
+              }
+            : idea
+        ),
+      });
+      setList(updatedList);
+      setLists((prevLists) =>
+        prevLists.map((prevList) =>
+          prevList._id === updatedList._id ? updatedList : prevList
+        )
+      );
       setEditingIdeaId("");
     } catch (error) {
       console.error(error);
@@ -38,14 +65,7 @@ export default function AllListItems({ list, onIdeaUpdate, onIdeaDelete }) {
         {list.ideas.map((idea) => (
           <li key={idea._id}>
             {editingIdeaId === idea._id ? (
-              <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  const title = event.target.elements.title.value;
-                  const description = event.target.elements.description.value;
-                  handleUpdateIdea(idea._id, title, description);
-                }}
-              >
+              <form onSubmit={(event) => handleUpdateIdea(event, idea._id)}>
                 <input type="text" name="title" defaultValue={idea.title} />
                 <input
                   type="text"

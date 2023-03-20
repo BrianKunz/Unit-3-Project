@@ -44,6 +44,23 @@ export default function AllList({ lists, setLists }) {
     }
   };
 
+  const handleIdeaUpdate = (updatedIdea) => {
+    setLists((prevLists) =>
+      prevLists.map((list) => {
+        if (list._id === selectedList._id) {
+          return {
+            ...list,
+            ideas: list.ideas.map((idea) =>
+              idea._id === updatedIdea._id ? updatedIdea : idea
+            ),
+          };
+        } else {
+          return list;
+        }
+      })
+    );
+  };
+
   return (
     <main>
       <h1>All Lists</h1>
@@ -59,7 +76,11 @@ export default function AllList({ lists, setLists }) {
           <input value={listName} onChange={handleListNameChange} />
           <button onClick={handleListSave}>Save</button>
           <button onClick={handleListDelete}>Delete</button>
-          <AllListItems list={selectedList} />
+          <AllListItems
+            list={selectedList}
+            onIdeaUpdate={handleIdeaUpdate}
+            setLists={setLists}
+          />
         </div>
       )}
     </main>

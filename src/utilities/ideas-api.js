@@ -17,13 +17,7 @@ export function createIdea(ideaData) {
 }
 
 export function updateIdea(ideaId, ideaData) {
-  return sendRequest(`${BASE_URL}/${ideaId}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(ideaData),
-  });
+  return sendRequest(`${BASE_URL}/${ideaId}`, "PUT", ideaData);
 }
 
 export function deleteIdea(ideaId) {
