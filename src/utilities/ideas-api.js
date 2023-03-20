@@ -6,14 +6,8 @@ export function getAllIdeas() {
   return sendRequest(BASE_URL);
 }
 
-export function createIdea(ideaData) {
-  return sendRequest(`${BASE_URL}/create`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(ideaData),
-  });
+export function createIdea(ideaData, listId) {
+  return sendRequest(`${BASE_URL}/${listId}`, "POST", ideaData);
 }
 
 export function updateIdea(ideaId, ideaData) {
@@ -21,5 +15,5 @@ export function updateIdea(ideaId, ideaData) {
 }
 
 export function deleteIdea(ideaId) {
-  return sendRequest(`${BASE_URL}/${ideaId}`, { method: "DELETE" });
+  return sendRequest(`${BASE_URL}/${ideaId}`, "DELETE");
 }

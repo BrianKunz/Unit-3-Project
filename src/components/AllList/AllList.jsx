@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AllListItems from "../AllListItem/AllListItem";
+import CreateList from "../Createlist/Createlist";
 import { updateList, deleteList } from "../../utilities/lists-api";
 
 export default function AllList({ lists, setLists }) {
@@ -83,6 +84,7 @@ export default function AllList({ lists, setLists }) {
           />
         </div>
       )}
+      <CreateList />
     </main>
   );
 }
