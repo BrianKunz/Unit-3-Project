@@ -1,4 +1,4 @@
-.CreateListItem {
+.CreateListIdea {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -6,35 +6,38 @@
     margin-bottom: 3vmin;
     padding: 2vmin;
     color: var(--text-light);
-    background-color: var(--white);
+    background-color: var(--orange);
     border: 0.1vmin solid var(--tan-3);
     border-radius: 1vmin;
     font-size: 4vmin;
   }
   
-  .CreateListItem .title {
+  .CreateListIdea .title {
     height: 8vw;
     width: 8vw;
-    font-size: 4vw;
+    font-size: 6vw;
     background-color: var(--tan-1);
     border: 0.1vmin solid var(--tan-3);
     border-radius: 1vmin;
   }
   
-  .CreateListItem .add {
+  .CreateListIdea .add {
     display: flex;
     flex-direction: column;
   }
   
-  .CreateListItem .add span {
+  .CreateListIdea .add span {
     font-size: 1.7vw;
     text-align: center;
     color: var(--text-light);
   }
   
-  .CreateListItem .name {
+  .CreateListIdea .name {
     font-size: 2vw;
     text-align: center;
     color: var(--text-light);
   }
-  
+  .CreateListIdea .label {
+    font-size: 4vmin;
+
+  }

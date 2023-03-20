@@ -81,3 +81,9 @@ export default class SignUpForm extends Component {
     );
   }
 }
+
+// import React from "react";
+
+// export default function SignUpForm() {
+//   return <div>SignUpForm</div>;
+// }

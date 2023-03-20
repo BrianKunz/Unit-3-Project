@@ -1,53 +1,56 @@
-import styles from "./OrderHistoryPage.module.scss";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import * as ordersAPI from "../../utilities/lists-api";
-import Logo from "../../components/Logo/Logo";
-import UserLogOut from "../../components/UserLogOut/UserLogOut";
-import OrderList from "../../components/AllList/AllList";
-import OrderDetail from "../../components/ListDetail/ListDetail";
-import Aside from "../../components/Aside";
+import styles from "./ShowListPage.module.scss";
+// import { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
+// // import * as ordersAPI from "../../utilities/lists-api";
+// // import Logo from "../../components/Logo/Logo";
+// // import UserLogOut from "../../components/UserLogOut/UserLogOut";
+// // import OrderList from "../../components/AllList/AllList";
+// // import OrderDetail from "../../components/ListDetail/ListDetail";
+// import Aside from "../../components/Aside";
 
-export default function ShowListPage({ user, setUser }) {
-  /*--- State --- */
-  const [gifts, setGifts] = useState([]);
-  const [activeGifts, setActiveGifts] = useState(null);
+// export default function ShowListPage({ user, setUser }) {
+//   /*--- State --- */
+//   const [gifts, setGifts] = useState([]);
+//   const [activeGifts, setActiveGifts] = useState(null);
 
-  /*--- Side Effects --- */
+//   /*--- Side Effects --- */
+//   useEffect(function () {
+//     // Load previous orders (paid)
+//     async function fetchShowList() {
+//       const gifts = await giftssAPI.getGiftsHistory();
+//       setGifts(gifts);
+//       // If no orders, activeOrder will be set to null below
+//       setActiveGifts(gifts[0] || null);
+//     }
+//     fetchShowList();
+//   }, []);
+
+//   /*--- Event Handlers --- */
+//   function handleSelectGift(gift) {
+//     setActiveGift(gift);
+// }
+
+/*--- Rendered UI --- */
+
+import React, { useRef, useEffect, useState } from "react";
+import AllList from "../../components/AllList/AllList";
+import * as listsAPI from "../../utilities/lists-api";
+
+export default function ShowListPage() {
+  const [allLists, setAllLists] = useState([]);
+  // const categoriesRef = useRef([]);
   useEffect(function () {
-    // Load previous orders (paid)
-    async function fetchShowList() {
-      const gifts = await giftssAPI.getGiftsHistory();
-      setGifts(gifts);
-      // If no orders, activeOrder will be set to null below
-      setActiveGifts(gifts[0] || null);
+    async function getLists() {
+      const lists = await listsAPI.getLists();
+      setAllLists(lists);
     }
-    fetchShowList();
+    getLists();
   }, []);
 
-
-  /*--- Event Handlers --- */
-  function handleSelectGift(gift) {
-    setActiveGift(gift);
-  }
-
-  /*--- Rendered UI --- */
   return (
-    <main className={styles.ShowListPage}>
-      <Aside user={user} setUser={setUser} styles={styles.aside}>
-        <Link to="/listss/new" className="button btn-sm">
-          New Lists
-        </Link>
-      </Aside>
-      <AllList
-        title={gifts}
-        description={description}
-        photo={photo}
-        listNumber={listNumber}
-        activeList={activeList}
-        handleSelectorList={handleSelectorList}
-      />
-      <ListDetail gift={activeGift} />
-    </main>
+    <div>
+      <div className={styles.ShowListPage}>Lets See the Lists</div>
+      <AllList lists={allLists} />
+    </div>
   );
 }

@@ -1,56 +1,56 @@
 import { useState, useEffect, useRef } from "react";
-import * as itemsAPI from "../../utilities/items-api";
+import * as ideasAPI from "../../utilities/ideas-api";
 import * as listsAPI from "../../utilities/lists-api";
 import styles from "./NewListPage.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../components/Logo/Logo";
+// import Logo from "../../components/Logo/Logo";
 import CreateList from "../../components/CreateList/CreateList";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import ListDetail from "../../components/ListDetail/ListDetail";
-import UserLogOut from "../../components/UserLogOut/UserLogOut";
+// import UserLogOut from "../../components/UserLogOut/UserLogOut";
 import Aside from "../../components/Aside";
 
 export default function NewListPage({ user, setUser }) {
-  const [listItems, setListItems] = useState([]);
+  const [listIdeas, setListIdeas] = useState([]);
   const [activeCat, setActiveCat] = useState("");
   const [done, setDone] = useState(null);
   const categoriesRef = useRef([]);
   const navigate = useNavigate();
 
   useEffect(function () {
-    async function getLists() {
-      const items = await itemsAPI.getAll();
-      categoriesRef.current = items.reduce((cats, item) => {
-        const cat = lists.category.title;
+    async function getIdeas() {
+      const ideas = await ideasAPI.getAllIdeas();
+      categoriesRef.current = ideas.reduce((cats, idea) => {
+        const cat = idea.category.title;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
-      setListItems(items);
+      setListIdeas(ideas);
       setActiveCat(categoriesRef.current[0]);
     }
-    getLists();
+    getIdeas();
     async function getDone() {
-      const cart = await ordersAPI.getDone();
+      const done = await listsAPI.getLists();
       setDone(done);
     }
-    getLists();
+    getDone();
   }, []);
   // Providing an empty 'dependency array'
   // results in the effect running after
   // the FIRST render only
 
   /*-- Event Handlers --*/
-  async function handleAddToList(itemId) {
-    const updatedList = await ordersAPI.addItemToDone(itemId);
-    setDone(updatedDone);
+  async function handleAddToList(ideaId) {
+    const updatedList = await listsAPI.addIdeaToList(ideaId);
+    setDone(updatedList);
   }
-//used to delete
-  async function handleChangeQty(itemId, newQty) {
-    const updatedDone = await ordersAPI.setItemQtyInDone(itemId, newQty);
+  //used to delete
+  async function handleChangeQty(ideaId, newQty) {
+    const updatedDone = await listsAPI.updateList(ideaId, newQty);
     setDone(updatedDone);
   }
 
   async function handleCheck() {
-    await listsAPI.check();
+    await listsAPI.updateList();
     navigate("/lists");
   }
 
@@ -68,7 +68,7 @@ export default function NewListPage({ user, setUser }) {
       </Aside>
 
       <CreateList
-        listItems={listItems.filter((item) => item.category.name === activeCat)}
+        listIdeas={listIdeas.filter((idea) => idea.category.name === activeCat)}
         handleAddToList={handleAddToList}
       />
       <ListDetail
