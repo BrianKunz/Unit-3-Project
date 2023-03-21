@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AllListItems from "../AllListItem/AllListItem";
-import CreateList from "../Createlist/Createlist";
+import CreateListIdea from "../CreateListIdea/CreateListIdea";
 import { updateList, deleteList } from "../../utilities/lists-api";
 
 export default function AllList({ lists, setLists }) {
@@ -82,9 +82,9 @@ export default function AllList({ lists, setLists }) {
             onIdeaUpdate={handleIdeaUpdate}
             setLists={setLists}
           />
+          <CreateListIdea />
         </div>
       )}
-      <CreateList />
     </main>
   );
 }

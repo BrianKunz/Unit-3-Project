@@ -87,7 +87,14 @@ export default function AllListItem({ list, idea }) {
             ) : (
               <>
                 <h3>{idea.title}</h3>
+                <img
+                  src={idea.img}
+                  alt={idea.name}
+                  width={600}
+                  height={600}
+                ></img>
                 <p>{idea.description}</p>
+                <a href={idea.link}>Link</a>
                 <button type="button" onClick={() => handleEditClick(idea._id)}>
                   Edit
                 </button>

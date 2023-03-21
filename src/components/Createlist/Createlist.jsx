@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { createList } from "../../utilities/lists-api";
-import CreateListIdea from "../CreateListIdea/CreateListIdea";
 
-export default function AllListItems() {
-  const [list, setList] = useState(null);
+export default function CreateList() {
+  const [list, setList] = useState({ name: "", ideas: [] });
   const [error, setError] = useState("");
 
-  const handleCreateList = async () => {
+  const handleCreateList = async (event) => {
+    event.preventDefault();
     try {
-      const listData = await createList(); // Create new list
+      const listData = await createList(list); // Create new list
       setList(listData);
     } catch (error) {
       setError("Failed to create list");
     }
   };
 
-  const handleSetIdea = (newIdea) => {
-    setList({ ...list, ideas: [...list.ideas, newIdea] });
-  };
-
   const handleSetName = (event) => {
+    // add this line
     setList({ ...list, name: event.target.value });
   };
 
@@ -31,27 +28,20 @@ export default function AllListItems() {
     <div>
       {list ? (
         <div>
-          <div>
+          <form onSubmit={handleCreateList}>
             <label htmlFor="list-name">List Name:</label>
             <input
               id="list-name"
               type="text"
+              name="name"
               value={list.name}
-              onChange={handleSetName}
+              onChange={handleSetName} // Attach handleSetName to onChange event
             />
-          </div>
-          <CreateListIdea list={list} setIdea={handleSetIdea} />
-          <div className="all-list-items">
-            {list.ideas.map((idea) => (
-              <div key={idea._id}>
-                <p>{idea.description}</p>
-                <p>{idea.createdAt}</p>
-              </div>
-            ))}
-          </div>
+            <button type="submit">Create List</button>
+          </form>
         </div>
       ) : (
-        <button onClick={handleCreateList}>Create List</button>
+        <p>Creating List...</p>
       )}
     </div>
   );

@@ -7,6 +7,7 @@ export function getLists() {
 }
 
 export function createList(listData) {
+  console.log(listData);
   return sendRequest(`${BASE_URL}/`, "POST", listData);
 }
 

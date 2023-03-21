@@ -3,6 +3,7 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import CreateList from "../../components/Createlist/Createlist";
 
 //pages
 // import AuthPage from "../AuthPage/AuthPage";
@@ -21,6 +22,7 @@ function App() {
         <SignUpForm />
         <LoginForm />
         <ShowListPage />
+        <CreateList />
       </>
     </main>
   );
