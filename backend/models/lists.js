@@ -9,7 +9,7 @@ const listSchema = new Schema(
       maxLength: 30,
       // required: true,
     },
-    qty: { type: Number, default: 1 },
+    // qty: { type: Number, default: 1 },
     ideas: [
       {
         type: Schema.Types.ObjectId,
@@ -19,7 +19,7 @@ const listSchema = new Schema(
   },
   {
     timestamps: true,
-    toJSON: true,
+    // toJSON: true,
   }
 );
 
