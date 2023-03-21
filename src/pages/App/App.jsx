@@ -1,5 +1,5 @@
 import React from "react";
-
+import Logo from "../../components/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
