@@ -3,7 +3,8 @@ import Logo from "../../components/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import CreateList from "../../components/Createlist/Createlist";
+// import CreateList from "../../components/Createlist/Createlist";
+import NewCreateListIdea from "../../components/CreateListIdea/NewCreateListIdea";
 
 //pages
 // import AuthPage from "../AuthPage/AuthPage";
@@ -22,7 +23,8 @@ function App() {
         <SignUpForm />
         <LoginForm />
         <ShowListPage />
-        <CreateList />
+        {/* <CreateList /> */}
+        <NewCreateListIdea />
       </>
     </main>
   );

@@ -15,6 +15,7 @@ export default async function sendRequest(url, method = "GET", payload = null) {
   }
   console.log({ options });
   try {
+    console.log(options.data);
     const { data } = await axios(`http://localhost:3001${url}`, options);
     return data;
   } catch (error) {

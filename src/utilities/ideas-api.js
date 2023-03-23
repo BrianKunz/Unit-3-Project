@@ -3,11 +3,12 @@ import sendRequest from "./send-request";
 const BASE_URL = "/api/ideas";
 
 export function getAllIdeas() {
-  return sendRequest(BASE_URL);
+  return sendRequest(`${BASE_URL}/`);
 }
 
-export function createIdea(ideaData, listId) {
-  return sendRequest(`${BASE_URL}/${listId}`, "POST", ideaData);
+export function createIdea(ideaData) {
+  console.log("ideaData", ideaData);
+  return sendRequest(`${BASE_URL}/`, "POST", ideaData);
 }
 
 export function updateIdea(ideaId, ideaData) {

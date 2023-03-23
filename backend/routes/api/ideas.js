@@ -1,16 +1,17 @@
 // Requirements and Controllers
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 const {
-    dataController, 
-    apiController, 
-} = require('../../controllers/api/ideas');
+  dataController,
+  apiController,
+} = require("../../controllers/api/ideas");
 
 router.use((req, res, next) => {
-    res.locals.data = {};
-    next();
+  console.log("Create idea route handler called", req.body);
+  res.locals.data = {};
+  next();
 });
 
 // Routes:

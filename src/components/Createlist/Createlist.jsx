@@ -29,7 +29,7 @@ export default function CreateList() {
       {list ? (
         <div>
           <form onSubmit={handleCreateList}>
-            <label htmlFor="list-name">List Name:</label>
+            <label className="list-name">List Name:</label>
             <input
               id="list-name"
               type="text"

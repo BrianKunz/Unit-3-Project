@@ -19,7 +19,7 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 app.use((req, res, next) => {
-  console.log(req.body);
+  console.log("server", req.body);
   res.locals.data = {};
   next();
 });
@@ -29,6 +29,7 @@ app.use(require("./backend/config/checkToken"));
 app.use("/api/users", require("./backend/routes/api/users"));
 app.use("/api/ideas", require("./backend/routes/api/ideas"));
 app.use("/api/lists", require("./backend/routes/api/lists"));
+app.use("/api/categories", require("./backend/routes/api/categories"));
 
 // Put API routes here, before the "catch all" route
 
