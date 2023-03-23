@@ -25,11 +25,9 @@ export default function CreateList() {
   const handleSetName = (event) => {
     setList({ ...list, name: event.target.value });
   };
-
   if (error) {
     return <div>{error}</div>;
   }
-
   if (!list) {
     return <div>Loading...</div>;
   }
@@ -57,4 +55,3 @@ export default function CreateList() {
     </div>
   );
 }
-  

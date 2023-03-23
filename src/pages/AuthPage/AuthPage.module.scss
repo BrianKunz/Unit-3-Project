@@ -1,17 +1,17 @@
 .AuthPage {
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--white);
-    border-radius: 2vmin;
-  }
-  .Logo {
-    position:absolute;
-    top:25%;
-    left:10%;
-  }
-  
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 2vmin;
+}
+.Logo {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+
 //   .AuthPage h3 {
 //     margin-top: 4vmin;
 //     text-align: center;
@@ -19,29 +19,33 @@
 //     cursor: pointer;
 //   }
 @keyframes bounce {
-	0%, 100%, 20%, 50%, 80% {
-		-webkit-transform: translateY(0);
-		-ms-transform:     translateY(0);
-		transform:         translateY(0)
-	}
-	40% {
-		-webkit-transform: translateY(-30px);
-		-ms-transform:     translateY(-30px);
-		transform:         translateY(-30px)
-	}
-	60% {
-		-webkit-transform: translateY(-15px);
-		-ms-transform:     translateY(-15px);
-		transform:         translateY(-15px)
-	}
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
 }
-.AuthPage h3 {  
+.AuthPage h3 {
   position: absolute;
   top: 65%;
   left: 15%;
   height: 180px;
   width: 180px;
-  background-color: #4B5DFF;  
+  background-color: #4b5dff;
   border-radius: 50%;
   line-height: 180px;
   text-align: center;

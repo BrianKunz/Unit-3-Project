@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import AllListItems from "../AllListItem/AllListItem";
-import { updateList, deleteList } from "../../utilities/lists-api";
+import { useList } from "../../utilities/useList";
 
-export default function AllList({ lists, setLists }) {
-  const [selectedList, setSelectedList] = useState(null);
+export default function AllList() {
+  const { lists, createList, updateList, deletedList } = useList();
+
+  const [list, setList] = useState(null);
   const [listName, setListName] = useState("");
+  const [selectedList, setSelectedList] = useState(null);
 
-  const handleListClick = (list) => {
-    setSelectedList(list);
-    setListName(list.name);
+  const handleListClick = () => {
+    setList(list);
   };
 
   const handleListNameChange = (event) => {
@@ -20,7 +22,7 @@ export default function AllList({ lists, setLists }) {
       const updatedList = await updateList(selectedList._id, {
         name: listName,
       });
-      setLists((prevLists) =>
+      setList((prevLists) =>
         prevLists.map((list) =>
           list._id === updatedList._id ? updatedList : list
         )
@@ -31,13 +33,12 @@ export default function AllList({ lists, setLists }) {
     }
   };
 
-  const handleListDelete = async () => {
+  const handleListDelete = async (_id) => {
     try {
-      await deleteList(selectedList._id);
-      setLists((prevLists) =>
+      await deletedList(selectedList._id);
+      setList((prevLists) =>
         prevLists.filter((list) => list._id !== selectedList._id)
       );
-      setSelectedList(null);
       setListName("");
     } catch (error) {
       console.error(error);
@@ -45,7 +46,7 @@ export default function AllList({ lists, setLists }) {
   };
 
   const handleIdeaUpdate = (updatedIdea) => {
-    setLists((prevLists) =>
+    setList((prevLists) =>
       prevLists.map((list) => {
         if (list._id === selectedList._id) {
           return {
@@ -65,8 +66,8 @@ export default function AllList({ lists, setLists }) {
     <main>
       <h1>All Lists</h1>
       <ul>
-        {lists.map((list) => (
-          <li key={list._id}>
+        {lists.map((list, _id) => (
+          <li key={_id}>
             <h2 onClick={() => handleListClick(list)}>{list.name}</h2>
           </li>
         ))}
@@ -79,10 +80,23 @@ export default function AllList({ lists, setLists }) {
           <AllListItems
             list={selectedList}
             onIdeaUpdate={handleIdeaUpdate}
-            setLists={setLists}
+            setList={setList}
           />
         </div>
       )}
     </main>
   );
 }
+
+// {selectedList && (
+//   <div>
+//     <input value={listName} onChange={handleListNameChange} />
+//     <button onClick={handleListSave}>Save</button>
+//     <button onClick={handleListDelete}>Delete</button>
+//     <AllListItems
+//       list={selectedList}
+//       onIdeaUpdate={handleIdeaUpdate}
+//       setList={setList}
+//     />
+//   </div>
+// )}

@@ -1,6 +1,8 @@
 import { getToken } from "./users-service";
+import axios from "axios";
 
 export default async function sendRequest(url, method = "GET", payload = null) {
+  console.log({ payload });
   const options = { method };
   if (payload) {
     options.headers = { "Content-Type": "application/json" };
@@ -11,7 +13,13 @@ export default async function sendRequest(url, method = "GET", payload = null) {
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
   }
-  const res = await fetch(url, options);
-  if (res.ok) return res.json();
-  throw new Error("Bad Request");
+  console.log({ options });
+  try {
+    console.log(options.data);
+    const { data } = await axios(`http://localhost:3001${url}`, options);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Bad Request");
+  }
 }

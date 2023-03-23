@@ -1,7 +1,5 @@
-// import styles from "./CreateListItem.module.scss";
 import { createIdea } from "../../utilities/ideas-api";
 import React, { Component } from "react";
-
 export default class CreateListIdea extends Component {
   state = {
     title: "",
@@ -11,7 +9,6 @@ export default class CreateListIdea extends Component {
     link: "",
     error: "",
   };
-
   handleInputChange = (event) => {
     this.setState({
       ...this.state,
@@ -19,7 +16,6 @@ export default class CreateListIdea extends Component {
       error: "",
     });
   };
-
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -28,10 +24,15 @@ export default class CreateListIdea extends Component {
       const idea = await createIdea(this.props.listId, formData); // Pass in listId to createIdea
       this.props.setIdea(idea);
     } catch (error) {
-      this.setState({ error: "Failed to add to list" });
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else {
+        console.log(`Error: ${error.message}`);
+      }
     }
   };
-
   render() {
     return (
       <div>
