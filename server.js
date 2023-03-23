@@ -4,8 +4,16 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const cors = require("cors");
 
 const app = express();
+
+var corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 require("./backend/config/db");
 
@@ -22,7 +30,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Check if token and create req.user
+app.use(require("./backend/config/checkToken"));
+
 //Routes:
+app.use("/api/users", require("./backend/routes/api/users"));
 app.use("/api/categories", require("./backend/routes/api/categories"));
 app.use("/api/ideas", require("./backend/routes/api/ideas"));
 app.use("/api/lists", require("./backend/routes/api/lists"));

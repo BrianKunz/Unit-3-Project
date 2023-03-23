@@ -7,20 +7,20 @@ const Idea = require("./backend/models/idea");
 (async function () {
   await Category.deleteMany({});
   const categories = await Category.create([
-    { name: "Birthday" },
-    { name: "Aniversary" },
-    { name: "Christmas" },
-    { name: "Valentines" },
-    { name: "Wedding" },
-    { name: "Easter" },
-    { name: "Bridal Shower" },
-    { name: "Baby Shower" },
-    { name: "Graduation" },
-    { name: "Father's Day" },
-    { name: "Mother's Day" },
-    { name: "House Warming" },
-    { name: "Retirement" },
-    { name: "Other" },
+    { name: "Anniversary", sortOrder: 1 },
+    { name: "Baby Shower", sortOrder: 2 },
+    { name: "Birthday", sortOrder: 3 },
+    { name: "Bridal Shower", sortOrder: 4 },
+    { name: "Christmas", sortOrder: 5 },
+    { name: "Easter", sortOrder: 6 },
+    { name: "Father's Day", sortOrder: 7 },
+    { name: "Graduation", sortOrder: 8 },
+    { name: "House Warming", sortOrder: 9 },
+    { name: "Mother's Day", sortOrder: 10 },
+    { name: "Retirement", sortOrder: 11 },
+    { name: "Valentines", sortOrder: 12 },
+    { name: "Wedding", sortOrder: 13 },
+    { name: "Other", sortOrder: 14 },
   ]);
 
   await Idea.deleteMany({});

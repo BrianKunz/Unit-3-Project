@@ -1,4 +1,4 @@
-import styles from "./ShowListPage.module.scss";
+// import styles from "./ShowListPage.module.scss";
 // import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 // // import * as ordersAPI from "../../utilities/lists-api";
@@ -33,7 +33,15 @@ import styles from "./ShowListPage.module.scss";
 /*--- Rendered UI --- */
 
 import React from "react";
+import AllList from "../../components/AllList/AllList";
+import { useList } from "../../utilities/useList";
 
 export default function ShowListPage() {
-  return <div className={styles.ShowListPage}>ShowListPage</div>;
+  const { lists } = useList();
+  return (
+    <div>
+      <div className="">ShowListPage</div>
+      <AllList lists={lists} />
+    </div>
+  );
 }
