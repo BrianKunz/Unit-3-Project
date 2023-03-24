@@ -3,7 +3,6 @@ import Logo from "../../components/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
-// import CreateList from "../../components/Createlist/Createlist";
 import NewCreateListIdea from "../../components/CreateListIdea/NewCreateListIdea";
 
 //pages
@@ -19,11 +18,10 @@ function App() {
   return (
     <main className={styles.App}>
       <>
-        <NavBar />
+        {/* <NavBar /> */}
         <SignUpForm />
-        <LoginForm />
-        <ShowListPage />
-        {/* <CreateList /> */}
+        {/* <LoginForm /> */}
+        {/* <ShowListPage /> */}
         <NewCreateListIdea />
       </>
     </main>

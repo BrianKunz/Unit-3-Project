@@ -10,6 +10,7 @@ export default function NewCreateListIdea() {
     category: "",
     link: "",
   });
+
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState("");
 
@@ -21,8 +22,17 @@ export default function NewCreateListIdea() {
   const handleCreateIdea = async (event) => {
     event.preventDefault();
     try {
-      const ideaData = await createIdea(idea);
-      setIdea(ideaData);
+      const ideaData = await createIdea({
+        ...idea,
+        category: idea.category ? idea.category._id : "",
+      });
+      setIdea({
+        title: "",
+        img: "",
+        description: "",
+        category: "",
+        link: "",
+      });
     } catch (error) {
       setError("Failed to create item");
     }
@@ -33,7 +43,10 @@ export default function NewCreateListIdea() {
     const selectedCategory = categories.find(
       (category) => category.name === value
     );
-    setIdea({ ...idea, category: selectedCategory.id });
+    setIdea((prevIdea) => ({
+      ...prevIdea,
+      category: selectedCategory || "",
+    }));
   };
 
   useEffect(() => {
@@ -72,12 +85,12 @@ export default function NewCreateListIdea() {
           <label>Category</label>
           <select
             name="category"
-            value={idea.category}
+            value={idea.category ? idea.category.name : ""}
             onChange={handleCategoryChange}
           >
             <option value="">Select a category</option>
             {categories.map((category) => (
-              <option key={category.id} value={category.name}>
+              <option key={category._id} value={category.name}>
                 {category.name}
               </option>
             ))}

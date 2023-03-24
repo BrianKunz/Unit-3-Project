@@ -82,11 +82,9 @@ const apiController = {
   index(req, res, next) {
     const foundIdeas = res.locals.data.ideas;
     res.json(foundIdeas);
-    console.log(foundIdeas);
   },
   show(req, res, next) {
     res.json(res.locals.data.idea);
-    console.log(res.locals.data.idea);
   },
 };
 

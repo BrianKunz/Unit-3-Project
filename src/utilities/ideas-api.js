@@ -7,7 +7,6 @@ export function getAllIdeas() {
 }
 
 export function createIdea(ideaData) {
-  console.log("ideaData", ideaData);
   return sendRequest(`${BASE_URL}/`, "POST", ideaData);
 }
 
