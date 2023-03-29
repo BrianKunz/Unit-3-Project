@@ -1,29 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../components/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
-import SignUpForm from "../../components/SignUpForm/SignUpForm";
-import LoginForm from "../../components/LoginForm/LoginForm";
 import NewCreateListIdea from "../../components/CreateListIdea/NewCreateListIdea";
+import AuthPage from "../AuthPage/AuthPage";
 
 //pages
-// import AuthPage from "../AuthPage/AuthPage";
 import ShowListPage from "../ShowListPage/ShowListPage";
 //components
-// import {getUser} from "../..utilities/user-service";
+import { getUser } from "../../utilities/users-service";
 import styles from "./App.module.scss";
 
 function App() {
-  // const[user, setUser] = useState(getUser());
+  const [user, setUser] = useState(getUser());
 
   return (
     <main className={styles.App}>
-      <>
-        {/* <NavBar /> */}
-        <SignUpForm />
-        {/* <LoginForm /> */}
-        {/* <ShowListPage /> */}
-        <NewCreateListIdea />
-      </>
+      {user ? (
+        <>
+          <NavBar />
+          <ShowListPage />
+          <NewCreateListIdea />
+        </>
+      ) : (
+        <AuthPage setUser={setUser} />
+      )}
     </main>
   );
 }

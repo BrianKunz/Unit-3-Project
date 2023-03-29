@@ -4,8 +4,8 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-
 const cors = require("cors");
+const ensureLoggedIn = require("./backend/config/ensureLoggedIn");
 
 const app = express();
 app.use(cors());
@@ -19,7 +19,6 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 app.use((req, res, next) => {
-  console.log("server", req.body);
   res.locals.data = {};
   next();
 });
@@ -27,9 +26,13 @@ app.use((req, res, next) => {
 //Routes:
 app.use(require("./backend/config/checkToken"));
 app.use("/api/users", require("./backend/routes/api/users"));
-app.use("/api/ideas", require("./backend/routes/api/ideas"));
-app.use("/api/lists", require("./backend/routes/api/lists"));
-app.use("/api/categories", require("./backend/routes/api/categories"));
+app.use("/api/ideas", ensureLoggedIn, require("./backend/routes/api/ideas"));
+app.use("/api/lists", ensureLoggedIn, require("./backend/routes/api/lists"));
+app.use(
+  "/api/categories",
+  ensureLoggedIn,
+  require("./backend/routes/api/categories")
+);
 
 // Put API routes here, before the "catch all" route
 

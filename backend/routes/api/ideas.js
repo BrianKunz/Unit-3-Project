@@ -9,7 +9,6 @@ const {
 } = require("../../controllers/api/ideas");
 
 router.use((req, res, next) => {
-  console.log("Create idea route handler called", req.body);
   res.locals.data = {};
   next();
 });

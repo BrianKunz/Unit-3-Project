@@ -52,7 +52,6 @@ const dataController = {
   async create(req, res, next) {
     try {
       const createList = await List.create(req.body);
-      console.log("Create body", req.body);
       res.locals.data.list = createList;
       next();
     } catch (error) {

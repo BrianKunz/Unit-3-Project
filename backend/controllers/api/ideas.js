@@ -51,11 +51,8 @@ const dataController = {
   // Create: Post
   async create(req, res, next) {
     try {
-      console.log("req.body in controller", req.body);
       const createdIdea = await Idea.create(req.body);
-      console.log("Create idea body", req.body);
       res.locals.data.idea = createdIdea;
-      console.log("created idea", createdIdea);
       next();
     } catch (error) {
       res.status(400).send({
