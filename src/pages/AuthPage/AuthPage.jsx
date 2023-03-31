@@ -5,10 +5,11 @@ import styles from "./AuthPage.module.scss";
 import Logo from "../../components/Logo/Logo";
 
 export default function AuthPage({ setUser }) {
-  const [showLogin, setShowLogin] = useState(true);
+  // const [showLogin, setShowLogin] = useState(true);
   return (
     <main className={styles.AuthPage}>
-      <div>
+      <h1>Login Page</h1>
+      {/* <div>
         <Logo />
         <h3 onClick={() => setShowLogin(!showLogin)}>
           {showLogin ? "Lets sign up!" : "Lets Login!"}
@@ -18,7 +19,7 @@ export default function AuthPage({ setUser }) {
         <LoginForm setUser={setUser} />
       ) : (
         <SignUpForm setUser={setUser} />
-      )}
+      )} */}
     </main>
   );
 }

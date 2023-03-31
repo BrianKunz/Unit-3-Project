@@ -12,3 +12,4 @@ export * from "./Other/Other";
 export * from "./Retirement/Retirement";
 export * from "./Graduation/Graduation";
 export * from "./Valentines/Valentines";
+export * from "./UserPage/UserPage";

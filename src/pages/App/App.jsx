@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 //pages
 import ShowListPage from "../ShowListPage/ShowListPage";
-// import AuthPage from "../AuthPage/AuthPage";
+import AuthPage from "../AuthPage/AuthPage";
 import {
   Anniversary,
   Babyshower,
@@ -20,6 +20,7 @@ import {
   Valentines,
   Weddings,
   Other,
+  UserPage,
 } from "../../pages/NavBar/index";
 
 //components
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <main className="">
-      <NavBar />
+      <NavBar user={user} />
       <Routes>
         <Route path="/" element={<ShowListPage />} />
         <Route path="/Anniversary" element={<Anniversary />} />
@@ -51,11 +52,19 @@ function App() {
         <Route path="/Valentines" element={<Valentines />} />
         <Route path="/Wedding" element={<Weddings />} />
         <Route path="/Other" element={<Other />} />
+        {user ? (
+          <Route path="/UserPage" element={<UserPage />} />
+        ) : (
+          <Route path="/Login" element={<AuthPage setUser={setUser} />} />
+        )}
       </Routes>
-
-      {/* <AuthPage setUser={setUser} /> */}
     </main>
   );
 }
 
 export default App;
+
+// For Later :
+{
+  /* <Route path={`/${user}`} element={<UserPage />} /> */
+}

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./NavBar.module.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getUser } from "../../utilities/users-service";
+
 const BASE_URL = "http://localhost:3001/api/categories";
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   const [cats, setCats] = useState([]);
 
   useEffect(() => {
@@ -35,6 +37,13 @@ export default function NavBar() {
             <Link to={`${cat.name}`}>{cat.name}</Link>
           </li>
         ))}
+        <li>
+          {user ? (
+            <Link to="/UserPage">{user.name}</Link>
+          ) : (
+            <Link to="/Login">Login</Link>
+          )}
+        </li>
       </ul>
     </nav>
   );
