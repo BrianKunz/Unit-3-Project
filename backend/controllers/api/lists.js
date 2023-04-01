@@ -51,6 +51,7 @@ const dataController = {
   // Create: Post
   async create(req, res, next) {
     try {
+      req.body.username = req.user.username;
       const createList = await List.create(req.body);
       res.locals.data.list = createList;
       next();

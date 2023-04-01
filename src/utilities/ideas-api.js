@@ -7,7 +7,14 @@ export function getAllIdeas() {
 }
 
 export function createIdea(ideaData) {
-  return sendRequest(`${BASE_URL}/`, "POST", ideaData);
+  const user = {
+    username: localStorage.getItem("username"),
+  };
+  const data = {
+    ...ideaData,
+    user,
+  };
+  return sendRequest(`${BASE_URL}/`, "POST", data);
 }
 
 export function updateIdea(ideaId, ideaData) {

@@ -51,6 +51,7 @@ const dataController = {
   // Create: Post
   async create(req, res, next) {
     try {
+      req.body.username = req.user.username;
       const createdIdea = await Idea.create(req.body);
       res.locals.data.idea = createdIdea;
       next();

@@ -6,8 +6,15 @@ export function getLists() {
   return sendRequest(`${BASE_URL}/`);
 }
 
-export function createList(listData) {
-  return sendRequest(`${BASE_URL}/`, "POST", listData);
+export async function createList(listData) {
+  const user = {
+    username: localStorage.getItem("username"),
+  };
+  const data = {
+    ...listData,
+    user,
+  };
+  return sendRequest(`${BASE_URL}/`, "POST", data);
 }
 
 export function addIdeaToList(ideaId, listId) {

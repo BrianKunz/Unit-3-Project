@@ -10,13 +10,13 @@ export default function CreateList() {
     try {
       const listData = await createList(list); // Create new list
       setList(listData);
+      console.log(list.username);
     } catch (error) {
       setError("Failed to create list");
     }
   };
 
   const handleSetName = (event) => {
-    // add this line
     setList({ ...list, name: event.target.value });
   };
 

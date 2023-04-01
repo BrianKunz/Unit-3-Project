@@ -7,15 +7,15 @@ const listSchema = new Schema(
     name: {
       type: String,
       maxLength: 30,
-      // required: true,
+      required: true,
     },
-    // qty: { type: Number, default: 1 },
     ideas: [
       {
         type: Schema.Types.ObjectId,
         ref: "Idea",
       },
     ],
+    username: { type: String, required: true },
   },
   {
     timestamps: true,
