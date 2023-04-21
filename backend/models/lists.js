@@ -23,6 +23,13 @@ const listSchema = new Schema(
   }
 );
 
+listSchema.methods.addIdeaToList = async function (idea) {
+  if (this.ideas.indexOf(idea._id) === -1) {
+    this.ideas.push(idea._id);
+    await this.save();
+  }
+};
+
 const List = model("List", listSchema);
 
 module.exports = List;

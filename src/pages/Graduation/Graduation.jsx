@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Babyshower() {
+export function Graduation() {
   const [ideas, setIdeas] = useState([]);
-  // const [activeCat, setActiveCat] = useState("");
-  // const categoriesRef = useRef([]);
 
   useEffect(() => {
     const getIdeas = async () => {
@@ -13,7 +11,7 @@ export function Babyshower() {
         const response = await axios.get(`${BASE_URL}/`);
         setIdeas(
           response.data.filter((idea) =>
-            idea.category ? idea.category.name === "Baby Shower" : [...ideas]
+            idea.category ? idea.category.name === "Graduation" : [...ideas]
           )
         );
         console.log(ideas);
@@ -31,7 +29,7 @@ export function Babyshower() {
 
   return (
     <div>
-      <h1>Baby Shower Gift Ideas</h1>
+      <h1>Graduation Gift Ideas</h1>
       <ul>
         {ideas.map((idea, _id) => (
           <li key={_id}>

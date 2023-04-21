@@ -6,6 +6,16 @@ export function getLists() {
   return sendRequest(`${BASE_URL}/`);
 }
 
+export async function getUserLists(user) {
+  try {
+    const listsData = await sendRequest(`/api/lists`);
+    return listsData.filter((list) => list.username === user.username);
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to get user lists");
+  }
+}
+
 export async function createList(listData) {
   const user = {
     username: localStorage.getItem("username"),

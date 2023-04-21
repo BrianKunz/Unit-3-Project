@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import NewCreateListIdea from "../../components/CreateListIdea/NewCreateListIdea";
 import AuthPage from "../AuthPage/AuthPage";
-
 //pages
 import ShowListPage from "../ShowListPage/ShowListPage";
 //components
 import { getUser } from "../../utilities/users-service";
 import styles from "./App.module.scss";
 import CreateList from "../../components/Createlist/Createlist";
+import UserPage from "../UserPage/UserPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -17,13 +17,14 @@ function App() {
 
   return (
     <main className={styles.App}>
-      <h3>{user.username}</h3>
       {user ? (
         <>
-          <NavBar />
+          <h3>{user.username}</h3>
+          {/* <NavBar /> */}
+          <UserPage />
           <ShowListPage />
-          <CreateList />
-          <NewCreateListIdea />
+          {/* <CreateList /> */}
+          {/* <NewCreateListIdea /> */}
         </>
       ) : (
         <AuthPage setUser={setUser} />
