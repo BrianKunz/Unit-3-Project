@@ -27,11 +27,17 @@ export async function createList(listData) {
   return sendRequest(`${BASE_URL}/`, "POST", data);
 }
 
-export function addIdeaToList(ideaId, listId) {
-  return sendRequest(`${BASE_URL}/${listId}/ideas/${ideaId}`, "POST");
+export function addIdeaToList(listId, ideaId) {
+  return fetch(`${BASE_URL}/${listId}`)
+    .then((response) => response.json())
+    .then((list) => {
+      const updatedList = { ...list, ideas: [...list.ideas, ideaId] };
+      return sendRequest(`${BASE_URL}/${listId}`, "PUT", updatedList);
+    });
 }
 
 export function updateList(listId, listData) {
+  console.log("Data being sent to server: ", listData);
   return sendRequest(`${BASE_URL}/${listId}`, "PUT", listData);
 }
 

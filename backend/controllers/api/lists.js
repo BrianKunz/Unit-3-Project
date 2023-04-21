@@ -1,6 +1,3 @@
-/**
- * Models
- */
 const List = require("../../models/lists");
 
 const dataController = {
@@ -34,11 +31,31 @@ const dataController = {
   // Update: Put
   async update(req, res, next) {
     try {
+      const { name, ideas } = req.body;
       const updatedList = await List.findByIdAndUpdate(
         req.params.id,
-        req.body,
+        { name, ideas },
         { new: true }
       );
+      res.locals.data.list = updatedList;
+      next();
+    } catch (error) {
+      res.status(400).send({
+        msg: error.message,
+      });
+    }
+  },
+
+  // Add Idea to List: Put
+  async addIdeaToList(req, res, next) {
+    try {
+      const listId = req.params.id;
+      const ideaId = req.body.ideaId;
+      const list = await List.findById(listId);
+      console.log("list before:", list);
+      list.ideas.push(ideaId);
+      const updatedList = await list.save();
+      console.log("updated list:", updatedList);
       res.locals.data.list = updatedList;
       next();
     } catch (error) {
@@ -65,7 +82,9 @@ const dataController = {
   // Show: Get
   async show(req, res, next) {
     try {
-      const foundList = await List.findById(req.params.id);
+      const foundList = await List.findById(req.params.id)
+        .populate("ideas")
+        .exec();
       res.locals.data.list = foundList;
       next();
     } catch (error) {

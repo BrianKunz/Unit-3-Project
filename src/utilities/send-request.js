@@ -21,6 +21,11 @@ export default async function sendRequest(
     options.headers = options.headers || {};
     options.headers.username = user.username;
   }
+  console.log(
+    `Sending ${method} request to ${url} with payload: ${JSON.stringify({
+      payload,
+    })}`
+  );
   try {
     const { data } = await axios(`http://localhost:3001${url}`, options);
     return data;
