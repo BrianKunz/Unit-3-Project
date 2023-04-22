@@ -143,7 +143,10 @@ function UserPage({ user }) {
             )}
             <ul>
               {list.ideas.map((idea) => (
-                <li key={idea._id}>{idea.description}</li>
+                <div>
+                  <li key={idea._id}>{idea.title}</li>
+                  <li key={idea._id}>{idea.link}</li>
+                </div>
               ))}
             </ul>
           </li>
