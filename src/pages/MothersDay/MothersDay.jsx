@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./MothersDay.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function MothersDay({ user }) {
@@ -17,7 +18,7 @@ export default function MothersDay({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.MothersDay}>
       <h1>Mother's Day Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

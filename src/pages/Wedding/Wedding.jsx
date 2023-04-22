@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Wedding.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Weddings({ user }) {
@@ -17,7 +18,7 @@ export default function Weddings({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Wedding}>
       <h1>Wedding Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

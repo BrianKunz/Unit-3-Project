@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./FathersDay.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function FathersDay({ user }) {
@@ -17,7 +18,7 @@ export default function FathersDay({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.FathersDay}>
       <h1>Father's Day Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

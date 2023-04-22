@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Valentines.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Valentines({ user }) {
@@ -17,7 +18,7 @@ export default function Valentines({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Valentines}>
       <h1>Valentines Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

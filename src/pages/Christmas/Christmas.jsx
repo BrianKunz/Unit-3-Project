@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Christmas.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Christmas({ user }) {
@@ -17,7 +18,7 @@ export default function Christmas({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Christmas}>
       <h1>Christmas Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

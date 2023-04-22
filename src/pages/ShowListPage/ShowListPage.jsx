@@ -15,7 +15,7 @@ export default function ShowListPage() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.ShowListPage}>
       <div className={styles.ShowListPage}>ShowListPage</div>
       <AllList lists={allLists} />
     </div>
