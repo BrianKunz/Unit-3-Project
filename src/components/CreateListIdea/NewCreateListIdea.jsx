@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAllCategories } from "../../utilities/categories-api";
 import { createIdea } from "../../utilities/ideas-api";
+import styles from "./CreateListIdea.module.scss";
 
 export default function NewCreateListIdea() {
   const [idea, setIdea] = useState({
@@ -51,7 +52,7 @@ export default function NewCreateListIdea() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.NewCreateListIdea}>
       <div>
         <form autoComplete="off" onSubmit={handleCreateIdea}>
           <label>Title</label>

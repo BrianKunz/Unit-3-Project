@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "./AllList.module.scss";
 import { Link } from "react-router-dom";
-import AllListIdea from "../AllListIdea/AllListIdea";
+import AllListIdea from "../AllListIdea/";
 
 export default function AllList({ lists }) {
   return (
-    <div>
+    <div className={styles.AllList}>
       <h2>All Lists</h2>
       <ul>
         {lists.map((list) => (

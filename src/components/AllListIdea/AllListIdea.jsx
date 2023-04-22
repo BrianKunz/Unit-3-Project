@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./AllListItem.module.scss";
 import { addIdeaToList } from "../../utilities/lists-api";
 
 export default function AllListIdea({ ideas, listId }) {
@@ -18,7 +19,7 @@ export default function AllListIdea({ ideas, listId }) {
   };
 
   return (
-    <div>
+    <div className={styles.AllListIdea}>
       <h2>Ideas</h2>
       <ul>
         {ideas.map((idea) => (
