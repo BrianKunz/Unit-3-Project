@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./Createlist.module.scss";
 import { createList } from "../../utilities/lists-api";
 
 export default function CreateList() {
@@ -25,7 +26,7 @@ export default function CreateList() {
   }
 
   return (
-    <div>
+    <div className={styles.CreateList}>
       {list ? (
         <div>
           <form onSubmit={handleCreateList}>

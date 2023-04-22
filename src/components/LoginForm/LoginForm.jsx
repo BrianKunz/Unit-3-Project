@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./LoginForm.module.scss";
 import * as usersService from "../../utilities/users-service";
 
 export default function LoginForm({ setUser }) {
@@ -29,7 +30,7 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
+    <div className={styles.LoginForm}>
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Username</label>

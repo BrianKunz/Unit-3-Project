@@ -1,11 +1,11 @@
 /* CSS Custom Properties */
 :root {
-  --white: #29ABF4;
+  --white: #29abf4;
   --tan-1: #fbf9f6;
   --tan-2: #e7e2dd;
   --tan-3: #e2d9d1;
   --tan-4: #d3c1ae;
-  --orange: #4B5DFF;
+  --orange: #4b5dff;
   --text-light: #968c84;
   --text-dark: #615954;
 }
