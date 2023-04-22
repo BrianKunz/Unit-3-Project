@@ -25,7 +25,9 @@ export default function Other({ user }) {
             <h2>{idea.title}</h2>
             <img src={idea.img} alt={idea.name} width={600} height={600} />
             <p>{idea.description}</p>
-            <button>Share</button>
+            <a href={idea.link} target="_blank">
+              Link
+            </a>
           </li>
         ))}
       </ul>
