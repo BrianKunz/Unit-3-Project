@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Graduation.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Graduation({ user }) {
@@ -17,7 +18,7 @@ export default function Graduation({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Graduation}>
       <h1>Graduation Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./ShowListPage.module.scss";
 import { getAllIdeas } from "../../utilities/ideas-api";
 import AllListIdea from "../../components/AllListIdea/AllListIdea";
 import { getUserLists } from "../../utilities/lists-api";
@@ -42,7 +43,7 @@ export default function ShowIdeasPage() {
   };
 
   return (
-    <div>
+    <div className={styles.ShowIdeasPage}>
       <h2>All Ideas</h2>
       <div>
         <label htmlFor="lists">Select a list:</label>

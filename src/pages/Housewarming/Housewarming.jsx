@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Housewarming.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Housewarming({ user }) {
@@ -17,7 +18,7 @@ export default function Housewarming({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Housewarming}>
       <h1>Housewarming Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

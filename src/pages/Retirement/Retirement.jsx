@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Retirement.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Retirement({ user }) {
@@ -17,7 +18,7 @@ export default function Retirement({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Retirement}>
       <h1>Retirement Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

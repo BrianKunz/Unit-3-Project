@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Bridalshower.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Bridalshower({ user }) {
@@ -17,7 +18,7 @@ export default function Bridalshower({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Bridalshower}>
       <h1>Bridal Shower Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

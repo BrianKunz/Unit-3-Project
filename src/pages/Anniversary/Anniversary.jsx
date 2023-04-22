@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Anniversary.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Anniversary({ user }) {
@@ -17,7 +18,7 @@ export default function Anniversary({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Anniversary}>
       <h1>Anniversary Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (

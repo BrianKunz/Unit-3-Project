@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./UserPage.module.scss";
 import {
   getUserLists,
   updateList,
@@ -128,7 +129,7 @@ function UserPage({ user }) {
   };
 
   return (
-    <div>
+    <div className={styles.UserPage}>
       <h1>My Lists</h1>
       <ul>
         {lists.map((list) => (

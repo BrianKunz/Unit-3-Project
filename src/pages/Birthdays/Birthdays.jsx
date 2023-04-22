@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Babyshower.module.scss";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
 export default function Birthdays({ user }) {
@@ -17,7 +18,7 @@ export default function Birthdays({ user }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.Birthdays}>
       <h1>Birthday Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (
