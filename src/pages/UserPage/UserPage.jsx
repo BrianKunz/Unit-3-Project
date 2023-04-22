@@ -146,7 +146,9 @@ function UserPage({ user }) {
               {list.ideas.map((idea) => (
                 <div>
                   <li key={idea._id}>{idea.title}</li>
-                  <li key={idea._id}>{idea.link}</li>
+                  <a href={idea.link} target="_blank">
+                    Link
+                  </a>
                 </div>
               ))}
             </ul>
