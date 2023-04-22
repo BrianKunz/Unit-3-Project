@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getIdeasByCategory } from "../../utilities/ideas-api";
 
-export default function Babyshower({ user }) {
+export default function Graduation({ user }) {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
     const fetchIdeas = async () => {
       try {
-        const data = await getIdeasByCategory("Baby Shower");
+        const data = await getIdeasByCategory("Graduation");
         setIdeas(data);
       } catch (error) {
         console.error(error);
@@ -18,7 +18,7 @@ export default function Babyshower({ user }) {
 
   return (
     <div>
-      <h1>Baby Shower Gift Ideas</h1>
+      <h1>Graduation Gift Ideas</h1>
       <ul>
         {ideas.map((idea, index) => (
           <li key={index}>

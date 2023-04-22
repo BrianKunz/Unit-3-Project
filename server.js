@@ -4,8 +4,8 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-
 const cors = require("cors");
+const ensureLoggedIn = require("./backend/config/ensureLoggedIn");
 
 const app = express();
 app.use(cors());
@@ -19,7 +19,6 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 app.use((req, res, next) => {
-  console.log(req.body);
   res.locals.data = {};
   next();
 });
@@ -27,8 +26,11 @@ app.use((req, res, next) => {
 //Routes:
 app.use(require("./backend/config/checkToken"));
 app.use("/api/users", require("./backend/routes/api/users"));
-app.use("/api/ideas", require("./backend/routes/api/ideas"));
-app.use("/api/lists", require("./backend/routes/api/lists"));
+app.use("/api/ideas", ensureLoggedIn, require("./backend/routes/api/ideas"));
+app.use("/api/lists", ensureLoggedIn, require("./backend/routes/api/lists"));
+// app.use("/api/ideas", require("./backend/routes/api/ideas"));
+// app.use("/api/lists", require("./backend/routes/api/lists"));
+app.use("/api/categories", require("./backend/routes/api/categories"));
 
 // Put API routes here, before the "catch all" route
 
@@ -41,6 +43,10 @@ app.get("/api", (req, res) => {
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "App.js"));
+// });
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server

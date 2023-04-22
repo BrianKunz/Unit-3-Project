@@ -51,6 +51,7 @@ const dataController = {
   // Create: Post
   async create(req, res, next) {
     try {
+      req.body.username = req.user.username;
       const createdIdea = await Idea.create(req.body);
       res.locals.data.idea = createdIdea;
       next();
@@ -79,7 +80,6 @@ const apiController = {
   index(req, res, next) {
     const foundIdeas = res.locals.data.ideas;
     res.json(foundIdeas);
-    console.log(foundIdeas);
   },
   show(req, res, next) {
     res.json(res.locals.data.idea);

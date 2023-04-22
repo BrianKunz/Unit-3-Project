@@ -1,12 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getAllCategories } from "../../utilities/categories-api";
 import { Link } from "react-router-dom";
+import UserLogOut from "../UserLogOut/UserLogOut";
+import NewCreateListIdea from "../CreateListIdea/NewCreateListIdea";
+import ShowIdeasPage from "../../pages/ShowIdeasPage/ShowIdeasPage";
+import CreateList from "../Createlist/Createlist";
 
-export default function NavBar() {
+export default function NavBar({ user, setUser }) {
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const categories = await getAllCategories();
+        setCats(categories);
+      } catch (error) {
+        console.error(error);
+        // handle error
+      }
+    };
+
+    getCategories();
+  }, []);
+
   return (
     <nav>
-      <Link to="/lists">List History</Link>
-      &nbsp; | &nbsp;
-      <Link to="/lists/new">New List</Link>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        {cats.map((cat, _id) => (
+          <li key={_id}>
+            <Link to={`${cat.name}`}>{cat.name}</Link>
+          </li>
+        ))}
+        <li>
+          {user ? (
+            <div>
+              <Link to="/Userpage">{user.username}</Link>
+              {/* <CreateList />
+              <NewCreateListIdea />
+              <ShowIdeasPage /> */}
+              <UserLogOut user={user} setUser={setUser} />
+            </div>
+          ) : (
+            <Link to="/Login">Login</Link>
+          )}
+        </li>
+      </ul>
     </nav>
   );
 }

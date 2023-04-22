@@ -33,7 +33,6 @@ const apiController = {
   index(req, res, next) {
     const foundCategories = res.locals.data.categories;
     res.json(foundCategories);
-    console.log(foundCategories);
   },
   show(req, res, next) {
     res.json(res.locals.data.category);

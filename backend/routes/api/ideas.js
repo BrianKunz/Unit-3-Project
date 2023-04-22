@@ -1,16 +1,16 @@
 // Requirements and Controllers
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 const {
-    dataController, 
-    apiController, 
-} = require('../../controllers/api/ideas');
+  dataController,
+  apiController,
+} = require("../../controllers/api/ideas");
 
 router.use((req, res, next) => {
-    res.locals.data = {};
-    next();
+  res.locals.data = {};
+  next();
 });
 
 // Routes:

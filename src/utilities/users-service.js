@@ -14,6 +14,7 @@ export async function login(credentials) {
 
 export function getToken() {
   const token = window.localStorage.getItem("token");
+  console.log("getToken token:", token);
   if (!token) return null;
   const payload = JSON.parse(atob(token.split(".")[1]));
   if (payload.exp < Date.now() / 1000) {

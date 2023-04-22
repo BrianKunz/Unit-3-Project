@@ -1,0 +1,23 @@
+div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+  }
+  li {
+    h2 {
+    }
+    img {
+      object-fit: cover;
+    }
+    p {
+    }
+    a {
+    }
+  }
+}

@@ -13,6 +13,7 @@ const ideaSchema = new Schema(
     description: { type: String, required: true },
     category: { type: Schema.Types.ObjectId, ref: "Category" },
     link: { type: String },
+    username: { type: String, required: true },
   },
   {
     timestamps: true,
