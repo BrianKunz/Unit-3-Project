@@ -149,7 +149,7 @@ function UserPage() {
           </li>
         ))}
       </ul>
-      <h1>My Lists</h1>
+      <h1>My Ideas</h1>
       <ul>
         {ideas.map((idea) => (
           <li key={idea._id}>

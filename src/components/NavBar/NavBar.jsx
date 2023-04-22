@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getAllCategories } from "../../utilities/categories-api";
 import { Link } from "react-router-dom";
 import UserLogOut from "../UserLogOut/UserLogOut";
-import NewCreateListIdea from "../CreateListIdea/NewCreateListIdea";
-import ShowIdeasPage from "../../pages/ShowIdeasPage/ShowIdeasPage";
-import CreateList from "../Createlist/Createlist";
 
 export default function NavBar({ user, setUser }) {
   const [cats, setCats] = useState([]);
@@ -38,9 +35,6 @@ export default function NavBar({ user, setUser }) {
           {user ? (
             <div>
               <Link to="/Userpage">{user.username}</Link>
-              {/* <CreateList />
-              <NewCreateListIdea />
-              <ShowIdeasPage /> */}
               <UserLogOut user={user} setUser={setUser} />
             </div>
           ) : (

@@ -26,13 +26,8 @@ export default function NewCreateListIdea() {
         ...idea,
         category: idea.category ? idea.category._id : "",
       });
-      setIdea({
-        title: "",
-        img: "",
-        description: "",
-        category: "",
-        link: "",
-      });
+      console.log(ideaData);
+      setIdea(ideaData);
     } catch (error) {
       setError("Failed to create item");
     }

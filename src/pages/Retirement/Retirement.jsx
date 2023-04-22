@@ -25,7 +25,7 @@ export default function Retirement({ user }) {
             <h2>{idea.title}</h2>
             <img src={idea.img} alt={idea.name} width={600} height={600} />
             <p>{idea.description}</p>
-            <button>Share</button>
+            <p>{idea.link}</p>
           </li>
         ))}
       </ul>
