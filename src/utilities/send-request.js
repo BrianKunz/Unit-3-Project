@@ -28,7 +28,10 @@ export default async function sendRequest(
   //   })}`
   // );
   try {
-    const { data } = await axios(`http://localhost:3001${url}`, options);
+    const { data } = await axios(
+      `https://64436f3e03dc5f54942decd0--deluxe-vacherin-a38a9a.netlify.app/${url}`,
+      options
+    );
     return data;
   } catch (error) {
     console.error(error);
