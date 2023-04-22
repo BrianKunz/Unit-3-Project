@@ -1,43 +1,31 @@
 import React, { useState, useEffect } from "react";
-import styles from "./FathersDay.module.scss";
-import axios from "axios";
-const BASE_URL = "http://localhost:3001/api/ideas";
+import { getIdeasByCategory } from "../../utilities/ideas-api";
 
-export default function FathersDay() {
+export default function FathersDay({ user }) {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    const getIdeas = async () => {
+    const fetchIdeas = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/`);
-        setIdeas(
-          response.data.filter((idea) =>
-            idea.category ? idea.category.name === "Father's Day" : [...ideas]
-          )
-        );
-        console.log(ideas);
+        const data = await getIdeasByCategory("Father's Day");
+        setIdeas(data);
       } catch (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
+        console.error(error);
       }
     };
-
-    getIdeas();
+    fetchIdeas();
   }, []);
 
   return (
-    <div className={styles.FathersDay}>
+    <div>
       <h1>Father's Day Gift Ideas</h1>
       <ul>
-        {ideas.map((idea, _id) => (
-          <li key={_id}>
+        {ideas.map((idea, index) => (
+          <li key={index}>
             <h2>{idea.title}</h2>
             <img src={idea.img} alt={idea.name} width={600} height={600} />
             <p>{idea.description}</p>
-            <a href={idea.link}>Share</a>
+            <button>Share</button>
           </li>
         ))}
       </ul>

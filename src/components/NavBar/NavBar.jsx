@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { getAllCategories } from "../../utilities/categories-api";
 import { Link } from "react-router-dom";
 import UserLogOut from "../UserLogOut/UserLogOut";
-
-const BASE_URL = "http://localhost:3001/api/categories";
+import NewCreateListIdea from "../CreateListIdea/NewCreateListIdea";
+import ShowIdeasPage from "../../pages/ShowIdeasPage/ShowIdeasPage";
+import CreateList from "../Createlist/Createlist";
 
 export default function NavBar({ user, setUser }) {
   const [cats, setCats] = useState([]);
@@ -11,14 +12,11 @@ export default function NavBar({ user, setUser }) {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/`);
-        setCats(response.data);
+        const categories = await getAllCategories();
+        setCats(categories);
       } catch (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
+        console.error(error);
+        // handle error
       }
     };
 
@@ -40,6 +38,9 @@ export default function NavBar({ user, setUser }) {
           {user ? (
             <div>
               <Link to="/Userpage">{user.username}</Link>
+              {/* <CreateList />
+              <NewCreateListIdea />
+              <ShowIdeasPage /> */}
               <UserLogOut user={user} setUser={setUser} />
             </div>
           ) : (

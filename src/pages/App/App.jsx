@@ -42,21 +42,22 @@ function App() {
           <AuthPage setUser={setUser} />
         )}
         <Route path="/Anniversary" element={<Anniversary />} />
-        <Route path="/BabyShower" element={<BabyShower />} />
-        <Route path="/Birthdays" element={<Birthdays />} />
-        <Route path="/BridalShower" element={<Bridalshower />} />
+        <Route path="/Baby Shower" element={<BabyShower />} />
+        <Route path="/Birthday" element={<Birthdays />} />
+        <Route path="/Bridal Shower" element={<Bridalshower />} />
         <Route path="/Christmas" element={<Christmas />} />
         <Route path="/Easter" element={<Easter />} />
-        <Route path="/FathersDay" element={<FathersDay />} />
+        <Route path="/Father's Day" element={<FathersDay />} />
         <Route path="/Graduation" element={<Graduation />} />
-        <Route path="/Housewarming" element={<Housewarming />} />
-        <Route path="/MothersDay" element={<MothersDay />} />
+        <Route path="/House Warming" element={<Housewarming />} />
+        <Route path="/Mother's Day" element={<MothersDay />} />
         <Route path="/Retirement" element={<Retirement />} />
         <Route path="/Valentines" element={<Valentines />} />
         <Route path="/Wedding" element={<Weddings />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/createlist" element={<CreateList />} />
         <Route path="/newcreatelistidea" element={<NewCreateListIdea />} />
+        <Route path="/ShowIdeasPage" element={<ShowIdeasPage />} />
         <Route path="/userpage" element={<UserPage />} />
       </Routes>
     </main>

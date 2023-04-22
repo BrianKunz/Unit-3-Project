@@ -8,7 +8,7 @@ export function getAllIdeas() {
 
 export async function getUserIdeas(user) {
   try {
-    const ideasData = await sendRequest(`/api/ideas`);
+    const ideasData = await sendRequest(`${BASE_URL}`);
     return ideasData.filter((idea) => idea.username === user.username);
   } catch (error) {
     console.error(error);
@@ -33,4 +33,16 @@ export function updateIdea(ideaId, ideaData) {
 
 export function deleteIdea(ideaId) {
   return sendRequest(`${BASE_URL}/${ideaId}`, "DELETE");
+}
+
+export async function getIdeasByCategory(categoryName) {
+  try {
+    const ideasData = await sendRequest(`${BASE_URL}`);
+    return ideasData.filter(
+      (idea) => idea.category && idea.category.name === categoryName
+    );
+  } catch (error) {
+    console.error(error);
+    throw new Error(`Failed to get ideas for category ${categoryName}`);
+  }
 }
