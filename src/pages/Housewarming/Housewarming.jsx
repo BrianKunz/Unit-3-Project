@@ -25,7 +25,9 @@ export default function Housewarming({ user }) {
             <h2>{idea.title}</h2>
             <img src={idea.img} alt={idea.name} width={600} height={600} />
             <p>{idea.description}</p>
-            <p>{idea.link}</p>
+            <a href={idea.link} target="_blank">
+              Link
+            </a>
           </li>
         ))}
       </ul>

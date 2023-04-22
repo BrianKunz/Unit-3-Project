@@ -1,30 +1,29 @@
 .AllListItem {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3vmin;
-    padding: 2vmin;
-    color: var(--text-light);
-    background-color: var(--white);
-    border: 0.2vmin solid var(--tan-3);
-    border-radius: 1vmin;
-    font-size: 2vmin;
-    cursor: pointer;
-  }
-  
-  .AllListItem > div > div:first-child {
-    margin-bottom: 0.5vmin;
-  }
-  
-  .AllListItem.selected {
-    border-color: var(--orange);
-    border-width: 0.2vmin;
-    cursor: default;
-  }
-  
-  .AllListItem:not(.selected):hover {
-    border-color: var(--orange);
-    border-width: 0.2vmin;
-  }
-  
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3vmin;
+  padding: 2vmin;
+  color: var(--text-light);
+  background-color: var(--white);
+  border: 0.2vmin solid var(--tan-3);
+  border-radius: 1vmin;
+  font-size: 2vmin;
+  cursor: pointer;
+}
+
+.AllListItem > div > div:first-child {
+  margin-bottom: 0.5vmin;
+}
+
+.AllListItem.selected {
+  border-color: var(--orange);
+  border-width: 0.2vmin;
+  cursor: default;
+}
+
+.AllListItem:not(.selected):hover {
+  border-color: var(--orange);
+  border-width: 0.2vmin;
+}

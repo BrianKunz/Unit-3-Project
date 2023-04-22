@@ -12,12 +12,6 @@
   left: 10%;
 }
 
-//   .AuthPage h3 {
-//     margin-top: 4vmin;
-//     text-align: center;
-//     color:var(--tan-1);
-//     cursor: pointer;
-//   }
 @keyframes bounce {
   0%,
   100%,
@@ -40,9 +34,9 @@
   }
 }
 .AuthPage h3 {
-  position: absolute;
-  top: 65%;
-  left: 15%;
+  position: fixed;
+  top: 70%;
+  left: 45%;
   height: 180px;
   width: 180px;
   background-color: #4b5dff;

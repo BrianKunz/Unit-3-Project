@@ -1,0 +1,40 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4b5dff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.2rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1vw;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+nav ul li a.active {
+  color: #29abf4;
+}
