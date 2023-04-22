@@ -26,15 +26,11 @@ app.use((req, res, next) => {
 //Routes:
 app.use(require("./backend/config/checkToken"));
 app.use("/api/users", require("./backend/routes/api/users"));
-// app.use("/api/ideas", ensureLoggedIn, require("./backend/routes/api/ideas"));
-// app.use("/api/lists", ensureLoggedIn, require("./backend/routes/api/lists"));
-app.use("/api/ideas", require("./backend/routes/api/ideas"));
-app.use("/api/lists", require("./backend/routes/api/lists"));
-app.use(
-  "/api/categories",
-  ensureLoggedIn,
-  require("./backend/routes/api/categories")
-);
+app.use("/api/ideas", ensureLoggedIn, require("./backend/routes/api/ideas"));
+app.use("/api/lists", ensureLoggedIn, require("./backend/routes/api/lists"));
+// app.use("/api/ideas", require("./backend/routes/api/ideas"));
+// app.use("/api/lists", require("./backend/routes/api/lists"));
+app.use("/api/categories", require("./backend/routes/api/categories"));
 
 // Put API routes here, before the "catch all" route
 

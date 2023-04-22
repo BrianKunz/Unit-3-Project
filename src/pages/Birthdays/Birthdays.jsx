@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Anniversary() {
+export default function Birthdays() {
   const [ideas, setIdeas] = useState([]);
-  // const [activeCat, setActiveCat] = useState("");
-  // const categoriesRef = useRef([]);
 
   useEffect(() => {
     const getIdeas = async () => {

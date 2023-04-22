@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Valentines() {
+export default function Valentines() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {

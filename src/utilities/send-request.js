@@ -16,6 +16,7 @@ export default async function sendRequest(
   if (token) {
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
+    console.log("Authorization header:", options.headers.Authorization);
   }
   if (user) {
     options.headers = options.headers || {};

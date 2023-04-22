@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Christmas() {
+export default function Christmas() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {

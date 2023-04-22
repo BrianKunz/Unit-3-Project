@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Birthdays() {
+export default function Anniversary() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export function Birthdays() {
         const response = await axios.get(`${BASE_URL}/`);
         setIdeas(
           response.data.filter((idea) =>
-            idea.category ? idea.category.name === "Birthday" : [...ideas]
+            idea.category ? idea.category.name === "Anniversary" : [...ideas]
           )
         );
         console.log(ideas);

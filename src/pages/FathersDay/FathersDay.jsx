@@ -3,7 +3,7 @@ import styles from "./FathersDay.module.scss";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function FathersDay() {
+export default function FathersDay() {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {

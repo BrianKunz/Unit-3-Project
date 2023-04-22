@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001/api/ideas";
 
-export function Weddings() {
+export default function Weddings(req) {
   const [ideas, setIdeas] = useState([]);
+  console.log(req.user);
 
   useEffect(() => {
     const getIdeas = async () => {
