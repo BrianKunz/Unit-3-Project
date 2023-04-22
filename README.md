@@ -30,7 +30,7 @@ https://github.com/BrianKunz/Unit-3-Project
 
 ## Unsolved Issues
 
-We had trouble connecting the front end with the back end, We have a login and signup page that show and take data push it to the db but it cant pull that data back to move to the next page. We can create,delete,edit on the back end.
+We had to change our deployment from Netlify to Heroku due to routing and approval issues with Cors. 
 
 ## Future Enhancments
 
