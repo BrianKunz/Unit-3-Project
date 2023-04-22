@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styles from "./App.module.scss";
 import { getUser } from "../../utilities/users-service";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 //pages
 import AuthPage from "../AuthPage/AuthPage";
 import ShowIdeasPage from "../ShowIdeasPage/ShowIdeasPage";
 import UserPage from "../UserPage/UserPage";
 //components
-// import Logo from "../../components/Logo/Logo";
 import NavBar from "../../components/NavBar/NavBar";
 import NewCreateListIdea from "../../components/CreateListIdea/NewCreateListIdea";
 import CreateList from "../../components/Createlist/Createlist";
@@ -28,19 +27,22 @@ import Other from "../Other/Other";
 
 function App() {
   const [user, setUser] = useState(getUser());
-  console.log(user);
 
   return (
     <main className={styles.App}>
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        {user ? (
-          <>
-            <Route path="/" element={<ShowIdeasPage />} />
-          </>
-        ) : (
-          <AuthPage setUser={setUser} />
-        )}
+        <Route
+          path="/"
+          element={
+            user ? (
+              <Navigate to="/showideapage" />
+            ) : (
+              <AuthPage setUser={setUser} />
+            )
+          }
+        />
+        <Route path="/showideapage" element={<ShowIdeasPage />} />
         <Route path="/Anniversary" element={<Anniversary />} />
         <Route path="/Baby Shower" element={<BabyShower />} />
         <Route path="/Birthday" element={<Birthdays />} />
@@ -57,7 +59,6 @@ function App() {
         <Route path="/Other" element={<Other />} />
         <Route path="/createlist" element={<CreateList />} />
         <Route path="/newcreatelistidea" element={<NewCreateListIdea />} />
-        <Route path="/ShowIdeasPage" element={<ShowIdeasPage />} />
         <Route path="/userpage" element={<UserPage />} />
       </Routes>
     </main>

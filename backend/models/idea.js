@@ -6,7 +6,7 @@ const ideaSchema = new Schema(
   {
     title: {
       type: String,
-      maxLength: 30,
+      maxLength: 50,
       required: true,
     },
     img: { type: String },
