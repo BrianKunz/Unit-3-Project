@@ -20,9 +20,9 @@ In our application we used many diffrent technologies to bring it all together. 
 
 https://trello.com/b/dUgFgZyF/group-project-3
 
-## Netlify Link
+## Heroku Link
 
-https://deluxe-vacherin-a38a9a.netlify.app/
+https://giftify-ga.herokuapp.com/
 
 ## Github
 
