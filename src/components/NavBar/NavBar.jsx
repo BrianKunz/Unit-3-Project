@@ -26,6 +26,12 @@ export default function NavBar({ user, setUser }) {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/createlist">Create New List</Link>
+        </li>
+        <li>
+          <Link to="/newcreatelistidea">Create New Idea</Link>
+        </li>
         {cats.map((cat, _id) => (
           <li key={_id}>
             <Link to={`${cat.name}`}>{cat.name}</Link>

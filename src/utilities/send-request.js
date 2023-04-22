@@ -16,17 +16,17 @@ export default async function sendRequest(
   if (token) {
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
-    console.log("Authorization header:", options.headers.Authorization);
+    // console.log("Authorization header:", options.headers.Authorization);
   }
   if (user) {
     options.headers = options.headers || {};
     options.headers.username = user.username;
   }
-  console.log(
-    `Sending ${method} request to ${url} with payload: ${JSON.stringify({
-      payload,
-    })}`
-  );
+  // console.log(
+  //   `Sending ${method} request to ${url} with payload: ${JSON.stringify({
+  //     payload,
+  //   })}`
+  // );
   try {
     const { data } = await axios(`http://localhost:3001${url}`, options);
     return data;
