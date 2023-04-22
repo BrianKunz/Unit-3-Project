@@ -23,7 +23,7 @@ export default async function sendRequest(
   }
   try {
     const { data } = await axios(
-      `https://giftify-ga.herokuapp.com/${url}`,
+      `https://giftify-ga.herokuapp.com${url}`,
       options
     );
 
