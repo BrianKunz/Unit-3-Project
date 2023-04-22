@@ -11,7 +11,7 @@ import {
 } from "../../utilities/ideas-api";
 import { getUser } from "../../utilities/users-service";
 
-function UserPage() {
+function UserPage({ user }) {
   const [lists, setLists] = useState([]);
   const [ideas, setIdeas] = useState([]);
   const [selectedList, setSelectedList] = useState(null);
