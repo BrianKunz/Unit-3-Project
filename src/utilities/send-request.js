@@ -16,22 +16,17 @@ export default async function sendRequest(
   if (token) {
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
-    // console.log("Authorization header:", options.headers.Authorization);
   }
   if (user) {
     options.headers = options.headers || {};
     options.headers.username = user.username;
   }
-  // console.log(
-  //   `Sending ${method} request to ${url} with payload: ${JSON.stringify({
-  //     payload,
-  //   })}`
-  // );
   try {
     const { data } = await axios(
-      `https://64436f3e03dc5f54942decd0--deluxe-vacherin-a38a9a.netlify.app/${url}`,
+      `https://giftify-ga.herokuapp.com/${url}`,
       options
     );
+
     return data;
   } catch (error) {
     console.error(error);
