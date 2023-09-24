@@ -1,0 +1,48 @@
+.Graduation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      padding: 2rem;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      max-width: 600px;
+      width: 100%;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 4px;
+        margin: 0;
+        max-width: 600px;
+        width: 100%;
+      }
+    }
+  }
+}

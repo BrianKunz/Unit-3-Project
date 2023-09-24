@@ -1,0 +1,23 @@
+.Logo {
+  height: 24vmin;
+  width: 24vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  background-color: var(--orange);
+  color: var(--tan-1);
+  font-size: 2vmin;
+  border: 0.6vmin solid var(--tan-2);
+}
+.Logo h1 {
+  font-size: 9vim;
+}
+
+.Logo h2 {
+  font-size: small;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
