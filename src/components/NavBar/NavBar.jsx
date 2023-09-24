@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllCategories } from "../../utilities/categories-api";
 import { Link } from "react-router-dom";
 import UserLogOut from "../UserLogOut/UserLogOut";
-import styles from "./NavBar.scss";
+import styles from "./NavBar.module.scss";
 
 export default function NavBar({ user, setUser }) {
   const [cats, setCats] = useState([]);
